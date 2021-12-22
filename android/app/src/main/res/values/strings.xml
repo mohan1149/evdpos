@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">evdpos</string>
+    <string moduleConfig="true" name="CodePushDeploymentKey">gGePQS1RcTLxCT1QvdYFvqcIKemx6qUfBpCdd</string>
 </resources>

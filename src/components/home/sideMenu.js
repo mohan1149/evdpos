@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { View, ScrollView, Share } from 'react-native';
 import { ListItem } from 'react-native-elements';
+import { LocalizationContext } from './../../locales/i18n';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { DrawerActions } from '@react-navigation/native';
 const SideMenu = (props) => {
+    const {
+        appLanguage,
+        translations,
+        initializeAppLanguage,
+        setAppLanguage,
+    } = useContext(LocalizationContext);
+    initializeAppLanguage();
     const onShare = async () => {
         try {
             const result = await Share.share({
@@ -29,78 +37,80 @@ const SideMenu = (props) => {
             <ScrollView>
                 <ListItem bottomDivider
                     onPress={() => {
-
+                        props.navigation.navigate('QuickPay');
                     }}
                 >
                     <Icon name='home' size={25} />
                     <ListItem.Content>
-                        <ListItem.Title>Quick Pay</ListItem.Title>
+                        <ListItem.Title>{translations['quickpay']}</ListItem.Title>
                     </ListItem.Content>
                     <ListItem.Chevron />
                 </ListItem>
+
                 <ListItem bottomDivider
                     onPress={() => {
-
+                        props.navigation.navigate('Dealer');
                     }}
                 >
                     <Icon name='user' size={25} />
                     <ListItem.Content>
-                        <ListItem.Title>Dealer</ListItem.Title>
+                        <ListItem.Title>{translations['dealer']}</ListItem.Title>
                     </ListItem.Content>
                     <ListItem.Chevron />
                 </ListItem>
                 <ListItem bottomDivider
                     onPress={() => {
-
+                        props.navigation.navigate('about');
                     }}
                 >
                     <Icon name='android' size={25} />
                     <ListItem.Content>
-                        <ListItem.Title>About App</ListItem.Title>
+                        <ListItem.Title>{translations['about_app']}</ListItem.Title>
                     </ListItem.Content>
                     <ListItem.Chevron />
                 </ListItem>
                 <ListItem bottomDivider
                     onPress={() => {
-
+                        props.navigation.navigate('Promotions');
                     }}
                 >
                     <Icon name='gift' size={25} />
                     <ListItem.Content>
-                        <ListItem.Title>Promotions</ListItem.Title>
+                        <ListItem.Title>{translations['promotions']}</ListItem.Title>
                     </ListItem.Content>
                     <ListItem.Chevron />
                 </ListItem>
                 <ListItem bottomDivider
                     onPress={() => {
-
+                        props.navigation.navigate('about');
                     }}
                 >
                     <Icon name='users' size={25} />
                     <ListItem.Content>
-                        <ListItem.Title>About Us</ListItem.Title>
+                        <ListItem.Title>{translations['about_us']}</ListItem.Title>
                     </ListItem.Content>
                     <ListItem.Chevron />
                 </ListItem>
                 <ListItem bottomDivider
                     onPress={() => {
-
+                        props.navigation.navigate('contact');
                     }}
                 >
                     <Icon name='envelope' size={25} />
                     <ListItem.Content>
-                        <ListItem.Title>Contact Us</ListItem.Title>
+                        <ListItem.Title>{translations['contact_us']}</ListItem.Title>
                     </ListItem.Content>
                     <ListItem.Chevron />
                 </ListItem>
                 <ListItem bottomDivider
                     onPress={() => {
-
+                        const lang = appLanguage === "en" ? "ar" : "en";
+                        setAppLanguage(lang);
                     }}
                 >
                     <Icon name='globe' size={25} />
                     <ListItem.Content>
-                        <ListItem.Title>Language</ListItem.Title>
+                        <ListItem.Title>{appLanguage === "en" ? 'العربية' : 'English'}</ListItem.Title>
                     </ListItem.Content>
                     <ListItem.Chevron />
                 </ListItem>
@@ -110,12 +120,26 @@ const SideMenu = (props) => {
                         onShare();
                     }}
                 >
-                    <Icon name='share' size={25}/>
+                    <Icon name='share' size={25} />
                     <ListItem.Content>
-                        <ListItem.Title>Share</ListItem.Title>
+                        <ListItem.Title>{translations['share']}</ListItem.Title>
                     </ListItem.Content>
                     <ListItem.Chevron />
                 </ListItem>
+
+                <ListItem bottomDivider
+                    onPress={() => {
+                        props.navigation.navigate('login');
+                      
+                    }}
+                >
+                    <Icon name='lock' size={25} />
+                    <ListItem.Content>
+                        <ListItem.Title>{translations['logout']}</ListItem.Title>
+                    </ListItem.Content>
+                    <ListItem.Chevron />
+                </ListItem>
+
             </ScrollView>
         </View>
     );

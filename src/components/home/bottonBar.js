@@ -18,6 +18,7 @@ export default function BottomBar() {
                     tabBarIcon: ({ color, size }) => (
                         <Icon name="home" color={color} size={size} />
                     ),
+                    tabBarActiveTintColor:'red',
                 }}
                 component={QuickPay} />
             <Tab.Screen name="Dealer" component={Dealer}
@@ -27,6 +28,7 @@ export default function BottomBar() {
                     tabBarIcon: ({ color, size }) => (
                         <Icon name="user" color={color} size={size} />
                     ),
+                    tabBarActiveTintColor:'red',
                 }}
             />
             <Tab.Screen name="Promotions" component={Promotions}
@@ -36,6 +38,7 @@ export default function BottomBar() {
                     tabBarIcon: ({ color, size }) => (
                         <Icon name="gift" color={color} size={size} />
                     ),
+                    tabBarActiveTintColor:'red',
                 }}
             />
         </Tab.Navigator>

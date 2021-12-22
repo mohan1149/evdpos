@@ -1,61 +1,59 @@
 import React from 'react';
-import { View, FlatList, Pressable,Text,Dimensions } from 'react-native';
+import { View, Image, Dimensions, Text, StyleSheet } from 'react-native';
 const QuickPayF = (props) => {
-    let items = ['Telcom', 'Online Vouchers', 'TV Channles', 'Digital Games', 'Internet Services', 'Entertainment'];
-    const renderItem = ({ item }) => (
-
-        <Pressable
-            style={{
-                borderRadius:5,
-                //borderWidth:1,
-                padding:20,
-                margin:10,
-                width:Dimensions.get('screen').width/2.5,
-                elevation:3,
-            }}
-            onPress={()=>{
-                props.navigation.navigate('service_categories',item);
-            }}
-        >
-            <Text style={{
-                textAlign:'center'
-            }}>{ item }</Text>
-        </Pressable>
-    );
     return (
         <View
             style={{
-                flex: 1,
-                backgroundColor: '#FFF',
-                padding: 15,
+                display:'flex',
+                flexDirection:'row',
+                flexWrap:'wrap'
             }}
         >
-            <FlatList
-                data={items}
-                renderItem={renderItem}
-                keyExtractor={item => item}
-                numColumns={2}
-            />
-            {/* <ScrollView>
-                {
-                    items.map((item, index) => {
-                        return (
-                            <ListItem bottomDivider key={index}
-                                onPress={()=>{
-                                    props.navigation.navigate('service_categories',item);
-                                }}
-                            >
-                                <ListItem.Content>
-                                    <ListItem.Title>{ item }</ListItem.Title>
-                                </ListItem.Content>
-                                <ListItem.Chevron />
-                            </ListItem>
-                        );
-                    })
-                }
-            </ScrollView> */}
+            <View style={Styles.conatiner}>
+                <Image source={require('./../assets/logos/0.png')} style={Styles.image }/>
+                <Text style={Styles.text}>Telcom</Text>
+            </View>
+            <View style={Styles.conatiner}>
+                <Image source={require('./../assets/logos/1.png')} style={Styles.image }/>
+                <Text style={Styles.text}>Internet Services</Text>
+            </View>
+            <View style={Styles.conatiner}>
+                <Image source={require('./../assets/logos/2.png')} style={Styles.image }/>
+                <Text style={Styles.text}>Online Vouchers</Text>
+            </View>
+            <View style={Styles.conatiner}>
+                <Image source={require('./../assets/logos/3.png')} style={Styles.image }/>
+                <Text style={Styles.text}>Digital Games</Text>
+            </View>
+            <View style={Styles.conatiner}>
+                <Image source={require('./../assets/logos/4.png')} style={Styles.image }/>
+                <Text style={Styles.text}>TV Channels</Text>
+            </View>
+            <View style={Styles.conatiner}>
+                <Image source={require('./../assets/logos/5.png')} style={Styles.image }/>
+                <Text style={Styles.text}>Entertainment</Text>
+            </View>
         </View>
     );
 }
-
+const Styles = StyleSheet.create({
+    conatiner: {
+        padding: 15,
+        width: Dimensions.get('screen').width / 2.3,
+        margin: 5,
+        elevation: 1.5,
+        alignItems: 'center',
+        borderWidth:0,
+    },
+    image:{
+        width: Dimensions.get('screen').width / 5,
+        height: Dimensions.get('screen').width / 5,
+    },
+    text:{
+        margin: 5,
+        textTransform: 'uppercase',
+        fontWeight: 'bold',
+        fontSize: 12,
+    }
+});
 export default QuickPayF;

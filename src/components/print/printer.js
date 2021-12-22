@@ -8,6 +8,16 @@ export async function printNextLine() {
 	await SunmiV2Printer.printOriginalText('\n');
 }
 
+export async function feedPaper() {
+	await SunmiV2Printer.printOriginalText('\n\n\n');
+}
+
+export async function printBoldText(text) {
+	await SunmiV2Printer.setFontSize(40);
+	await SunmiV2Printer.printOriginalText(text+'\n');
+	await SunmiV2Printer.setFontSize(25);
+}
+
 export async function printTest() {
 	await SunmiV2Printer.setFontSize(40);
 	await SunmiV2Printer.printOriginalText('Print Test on Evd\n');

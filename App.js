@@ -6,14 +6,16 @@
  * @flow strict-local
  */
 
- import React from 'react';
- import Router from './src/components/routing/router';
- const App = ()=> {
-   return (
+import React from 'react';
+import Router from './src/components/routing/router';
+import codePush from "react-native-code-push";
+import SplashScreen from 'react-native-splash-screen';
+const App = () => {
+  SplashScreen.hide();
+  return (
     <Router />
-   );
- };
- 
- 
- export default App;
- 
+  );
+};
+
+
+export default codePush(App);

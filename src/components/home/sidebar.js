@@ -22,7 +22,7 @@ const Sidebar = (props) => {
                             width: 100,
                         }}
                     />,
-                    headerRight: () => <Icon style={{marginRight:10}} name="bars" size={25} onPress={() => { navigation.dispatch(DrawerActions.toggleDrawer()); }} />,
+                    headerRight: () => <Icon style={{ marginRight: 10 }} name="bars" size={25} onPress={() => { navigation.dispatch(DrawerActions.toggleDrawer()); }} />,
                 }}
             />
         </Drawer.Navigator>
